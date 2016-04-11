@@ -5,6 +5,7 @@
 import angular        from 'angular';
 import ExerciseController from './controller/ExerciseCtrl';
 import ExerciseImageQuestion from './directives/ExerciseImageQuestion';
+import TitleService from './../Starter/services/TitleService/TitleService';
 /*
  * Stylesheets
  * ========================================================================== */
@@ -19,4 +20,4 @@ import './stylesheets/exercise.scss';
  * @param {Array} dependencies.
  * @export Module name - name of this module.
  */
-export default angular.module('Starter.App.Exercises', [ExerciseImageQuestion, 'ui.select']).controller('ExerciseController', ExerciseController).name;
+export default angular.module('Starter.App.Exercises', [ExerciseImageQuestion, TitleService, 'ui.select']).controller('ExerciseController', ExerciseController).name;
