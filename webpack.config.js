@@ -3,7 +3,7 @@ var webpack           = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-
+var WebpackNotifierPlugin = require('webpack-notifier');
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -36,7 +36,8 @@ module.exports = (function makeWebpackConfig () {
    * Karma will set this when it's a test build
    */
   config.entry = isTest ? {} : {
-    app: './src/Application.js'
+    app: './src/Application.js',
+    bootstrap: 'bootstrap-loader'
   };
 
   /**
@@ -113,7 +114,7 @@ module.exports = (function makeWebpackConfig () {
        * Reference: https://github.com/postcss/postcss-loader
        * Postprocess your css with PostCSS plugins
        */
-      test: /\.scss$/,
+      test: /(\.css|\.scss)$/,
 
       /**
        * CSS LOADER
@@ -155,6 +156,18 @@ module.exports = (function makeWebpackConfig () {
        */
       test: /\.jade$/,
       loader: 'jade'
+      /**
+       * BOOTSTRAP LOADERS
+       */
+    }, {
+      test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+      loader: 'imports?jQuery=jquery'
+    }, {
+      test: /\.(woff2?|svg)$/,
+      loader: 'url?limit=10000'
+    }, {
+      test: /\.(ttf|eot)$/,
+      loader: 'file'
     }]
   };
 
@@ -204,7 +217,12 @@ module.exports = (function makeWebpackConfig () {
    * Reference: http://webpack.github.io/docs/configuration.html#plugins
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
-  config.plugins = [];
+  config.plugins = [
+      new WebpackNotifierPlugin(),
+      new webpack.ProvidePlugin({
+        "window.Tether": "tether"
+      })
+  ];
 
   /** Skip rendering index.html in test mode */
   if (!isTest) {

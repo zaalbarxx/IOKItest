@@ -1,0 +1,6 @@
+.exercise-image-question(ng-class="ExerciseImageQuestion.getCssClasses()")
+  img(ng-src="{{ExerciseImageQuestion.image.url}}" alt="image")
+  ui-select.ui-select(ng-model="ExerciseImageQuestion.image.answer" ng-required="true")
+    ui-select-match.ui-select-match(placeholder="Select the answer") {{$select.selected.text}}
+    ui-select-choices.ui-select-choices(repeat="answer in ExerciseImageQuestion.answers")
+      div(ng-bind-html="answer.text")

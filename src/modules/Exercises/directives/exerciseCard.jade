@@ -1,0 +1,7 @@
+div.card.exercise-card
+  img.card-img-top(data-src="..." alt="Some logo")
+  .card-block
+    h4.card-title {{::Card.card.title}}
+    p.card-text {{::Card.card.description | limitTo:100}}
+    a.btn.btn-primary(ui-sref="exercises.show({id: Card.card.id})") Try
+

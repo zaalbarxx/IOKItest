@@ -6,12 +6,14 @@ describe('Controller: Home', () => {
   beforeEach(() => {
     angular.mock.module(Home);
     angular.mock.module('Starter.App.TitleService');
+    angular.mock.module('Starter.App.Services.ExercisesApi');
   });
 
   beforeEach(angular.mock.inject((_$controller_, _TitleService_) => {
     $controller  = _$controller_;
     TitleService = _TitleService_;
-    controller   = $controller('HomeController', { TitleService });
+    let Exercises = [];
+    controller   = $controller('HomeController', { TitleService , Exercises});
   }));
 
   it('should be defined', () => {

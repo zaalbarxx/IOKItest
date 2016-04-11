@@ -1,0 +1,8 @@
+.container
+  h1 Exercise 1
+  h2 Label the images
+  form(name="Exercise.form")
+    .row.m-t-lg(ng-repeat="chunk in Exercise.chunks")
+      .col-xs-12.col-lg-4(ng-repeat="question in chunk")
+        exercise-image-question(image="question" answers="Exercise.exercise.answers" onSelect="Exercise.onAnswer(question, answer)")
+    button.btn.btn-primary.btn-block.m-t-lg(ng-click="Exercise.validate()" ng-disabled="Exercise.form.$invalid") Check

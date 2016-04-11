@@ -7,17 +7,17 @@ import StarterController from './controller/StarterCtrl';
 
 import PointerEvents     from './directives/PointerEvents/PointerEventsDirective';
 import ThirdParties      from './directives/ThirdParties/ThirdPartiesDirective';
+import UiSelectRequired from './directives/uiSelectRequired/uiSelectRequired';
 
 import TitleService      from './services/TitleService/TitleService';
-
+import ExerciseCard from '../Exercises/directives/ExerciseCard';
 /*
  * Stylesheets
  * ========================================================================== */
 
 /* Base
  * ===================================== */
-
-import './stylesheets/reset.scss';
+import 'ui-select/dist/select.css';
 import './stylesheets/fonts.scss';
 import './stylesheets/globals.scss';
 
@@ -45,5 +45,5 @@ import './stylesheets/layout.scss';
  * @export Module name - name of root module
  */
 export default angular.module('Starter.App', [
-  PointerEvents, ThirdParties, TitleService
+  PointerEvents, ThirdParties, TitleService, UiSelectRequired, ExerciseCard
 ]).controller('StarterController', StarterController).name;

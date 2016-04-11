@@ -1,1 +1,5 @@
-.page-content.page_home
+.container.m-t-lg
+  div.row(ng-repeat="chunk in Home.exercises")
+    div.col-xs-12.col-lg-4(ng-repeat="exercise in chunk")
+      exercise-card(card="exercise")
+

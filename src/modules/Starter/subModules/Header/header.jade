@@ -1,1 +1,11 @@
-header.header
+.container.header.clearfix
+  nav.navbar.navbar-default
+    .container-fluid
+      ul.nav.navbar-nav.navbar-right
+        li.nav-item
+          a.nav-link(ui-sref="home" ui-sref-active="active") Home
+        li.nav-item
+          a.nav-link(ui-sref="exercises.show({id: 1})" ui-sref-active="active") Exercise 1
+        li.nav-item
+          a.nav-link(ui-sref="exercises.show({id: 2})" ui-sref-active="active") Exercise 2
+      img.header__logo(src=require("./images/Pearson_Logo_Horizontal.png") alt="logo")

@@ -9,16 +9,12 @@ import angular from 'angular';
 /**
  * @constructor
  */
-const Service = () => {
+const Service = ($document) => {
   "ngInject";
 
   class TitleService {
-    static setTitle(params = {}) {
-      const defaultTitle = params.default  || 'Angular Webpack Starter Kit';
-      const newTitle     = params.newTitle || '';
-      const devider      = params.devider  || ' –– ';
-
-      document.title = newTitle + (newTitle ? devider : '') + defaultTitle;
+    static setTitle({newTitle = '', defaultTitle = 'Angular Webpack Starter Kit', divider = ' -- '} = params) {
+      document.title = newTitle + (newTitle ? divider : '') + defaultTitle;
     }
   }
 

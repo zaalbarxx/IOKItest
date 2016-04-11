@@ -3,14 +3,14 @@
  * ========================================================================== */
 
 import angular        from 'angular';
-import HomeController from './controller/HomeCtrl';
-
+import ExerciseController from './controller/ExerciseCtrl';
+import ExerciseImageQuestion from './directives/ExerciseImageQuestion';
 /*
  * Stylesheets
  * ========================================================================== */
 
-import './stylesheets/home.scss';
-import ExercisesApi from './../Exercises/services/ExercisesApi';
+import './stylesheets/exercise.scss';
+
 /* ========================================================================== */
 
 /**
@@ -19,4 +19,4 @@ import ExercisesApi from './../Exercises/services/ExercisesApi';
  * @param {Array} dependencies.
  * @export Module name - name of this module.
  */
-export default angular.module('Starter.App.Home', [ExercisesApi]).controller('HomeController', HomeController).name;
+export default angular.module('Starter.App.Exercises', [ExerciseImageQuestion, 'ui.select']).controller('ExerciseController', ExerciseController).name;
